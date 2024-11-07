@@ -63,7 +63,7 @@ body {
 .header {
     background-color: #081c34;
     color: #fff;
-    padding: 2rem 3rem;
+    padding: 1rem 1.5rem;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -120,6 +120,7 @@ body {
     border: none;
     color: #fff;
     font-size: 2.5rem;
+    transition: transform 0.3s ease;
 }
 
 .hamburger {
@@ -181,11 +182,11 @@ body {
     background: linear-gradient(rgba(10, 31, 68, 0.6), rgba(10, 31, 68, 0.6)), url('../public/images/hero-background.jpg') center/cover no-repeat;
     color: #fff;
     text-align: center;
-    padding: 12rem 1rem;
+    padding: 8rem 1rem;
 }
 
 .hero-content h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: 'Equity Text', serif;
     letter-spacing: 1.5px;
     font-weight: 800;
@@ -203,15 +204,15 @@ body {
 }
 
 .cta-button {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #4a82d1 100%);
     color: #fff;
     padding: 1.2rem 3.5rem;
     border: none;
     font-size: 1.4rem;
     font-weight: bold;
     border-radius: 50px;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -222,8 +223,9 @@ body {
 }
 
 .cta-button:hover {
-    background-color: var(--accent-hover-color);
+    background: linear-gradient(135deg, var(--accent-hover-color) 0%, #24689a 100%);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Section Spacing Adjustment for Scroll Offset */
@@ -240,7 +242,7 @@ section {
 
 .about h2 {
     font-family: 'Equity Text', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     margin-bottom: 3rem;
     text-align: center;
@@ -257,15 +259,15 @@ section {
 }
 
 .cta-button-secondary {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #4a82d1 100%);
     color: #fff;
     padding: 1.2rem 3.5rem;
     border: none;
     font-size: 1.4rem;
     font-weight: bold;
     border-radius: 50px;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -275,8 +277,9 @@ section {
 }
 
 .cta-button-secondary:hover {
-    background-color: var(--accent-hover-color);
+    background: linear-gradient(135deg, var(--accent-hover-color) 0%, #24689a 100%);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Practice Areas Section */
@@ -304,7 +307,7 @@ section {
     background-color: #fff;
     padding: 3.5rem;
     border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 400px;
@@ -319,7 +322,7 @@ section {
 }
 
 .practice-area h3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     font-family: 'Equity Text', serif;
@@ -356,7 +359,7 @@ section {
 
 .attorneys h2 {
     font-family: 'Equity Text', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     text-align: center;
     margin-bottom: 4rem;
@@ -373,7 +376,7 @@ section {
     background-color: #fff;
     padding: 3.5rem;
     text-align: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.3s, transform 0.3s;
     width: 100%;
     max-width: 350px;
@@ -565,11 +568,15 @@ section {
         width: 240px;
         padding: 1.5rem;
         border-radius: 8px;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
     }
 
     .nav-links.active {
-        display: flex;
-    }
+    display: flex;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
 
     .nav-toggle {
         display: block;
