@@ -3,28 +3,28 @@
 /* Import Equity Text Fonts */
 @font-face {
     font-family: 'Equity Text';
-    src: url('../public/fonts/Equity\ Text\ A\ Regular.ttf') format('truetype');
+    src: url('/public/fonts/Equity Text A Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Equity Text';
-    src: url('../public/fonts/Equity\ Text\ A\ Bold.ttf') format('truetype');
+    src: url('/public/fonts/Equity Text A Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Equity Text';
-    src: url('../public/fonts/Equity\ Text\ A\ Italic.ttf') format('truetype');
+    src: url('/public/fonts/Equity Text A Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Equity Text';
-    src: url('../public/fonts/Equity\ Text\ A\ Bold\ Italic.ttf') format('truetype');
+    src: url('/public/fonts/Equity Text A Bold Italic.ttf') format('truetype');
     font-weight: 700;
     font-style: italic;
 }
@@ -295,9 +295,9 @@ section {
 
 .practice-areas-container {
     display: flex;
-    justify-content: space-between;
-    gap: 3rem;
-    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .practice-area {
@@ -306,7 +306,8 @@ section {
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 30%;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
     position: relative;
     overflow: hidden;
