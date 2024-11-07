@@ -1,0 +1,589 @@
+/* Main Stylesheet for Mills Shirley Law Firm Website - Enhanced with Refined Colors, Fonts, and Hyperlink Styles */
+
+/* Import Equity Text Fonts */
+@font-face {
+    font-family: 'Equity Text';
+    src: url('../public/fonts/Equity\ Text\ A\ Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Equity Text';
+    src: url('../public/fonts/Equity\ Text\ A\ Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Equity Text';
+    src: url('../public/fonts/Equity\ Text\ A\ Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Equity Text';
+    src: url('../public/fonts/Equity\ Text\ A\ Bold\ Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Equity Text', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    line-height: 1.75;
+    color: #333;
+    background-color: #f9f5f0;
+    font-weight: 300;
+    font-smooth: always;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Color Variables */
+:root {
+    --primary-color: #081c34;
+    --accent-color: #4a9cf0;
+    --accent-hover-color: #297bb1;
+    --neutral-bg-color: #ffffff;
+}
+
+/* Header Styles */
+.header {
+    background-color: #081c34;
+    color: #fff;
+    padding: 2rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header.sticky {
+    background-color: #081c34;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.logo a {
+    color: #ffffff;
+    font-size: 3rem;
+    font-family: 'Equity Text', serif;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    position: relative;
+}
+
+.nav-links a {
+    font-family: 'Equity Text', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.hamburger {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    display: block;
+    margin: 6px 0;
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #081c34;
+    padding: 1rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    list-style: none;
+    z-index: 10;
+    min-width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.dropdown-menu li:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-menu a {
+    color: #cbd6e6;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+}
+
+.dropdown-menu a:hover {
+    color: var(--accent-hover-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(10, 31, 68, 0.6), rgba(10, 31, 68, 0.6)), url('../public/images/hero-background.jpg') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 12rem 1rem;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    font-family: 'Equity Text', serif;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin: 2.5rem 0;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1.2rem 3.5rem;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cta-button i {
+    font-size: 1.5rem;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-3px);
+}
+
+/* Section Spacing Adjustment for Scroll Offset */
+section {
+    scroll-margin-top: 8rem;
+}
+
+/* About Section */
+.about {
+    background-color: #f9f5f0;
+    border-top: 6px solid var(--accent-color);
+    padding: 6rem 1rem;
+}
+
+.about h2 {
+    font-family: 'Equity Text', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.4rem;
+    line-height: 1.85;
+    color: #555;
+    text-align: justify;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+.cta-button-secondary {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1.2rem 3.5rem;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-3px);
+}
+
+/* Practice Areas Section */
+.practice-areas {
+    background-color: #ffffff;
+    padding: 6rem 1rem;
+}
+
+.practice-areas h2 {
+    font-family: 'Equity Text', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.practice-areas-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: nowrap;
+}
+
+.practice-area {
+    background-color: #fff;
+    padding: 3.5rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 30%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.practice-area:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.practice-area h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-family: 'Equity Text', serif;
+}
+
+.practice-area p {
+    font-size: 1.3rem;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+.practice-area i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.cta-link {
+    color: var(--accent-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.cta-link:hover {
+    color: var(--accent-hover-color);
+}
+
+/* Attorneys Section */
+.attorneys {
+    background-color: #f9f5f0;
+    padding: 6rem 1rem;
+}
+
+.attorneys h2 {
+    font-family: 'Equity Text', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.attorney-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    justify-items: center;
+}
+
+.attorney {
+    background-color: #fff;
+    padding: 3.5rem;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.attorney:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+}
+
+.attorney img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.attorney img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.attorney h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Equity Text', serif;
+}
+
+.attorney p {
+    color: #555;
+    font-size: 1.4rem;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+}
+
+.cta-button-attorney {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
+}
+
+.cta-button-attorney:hover {
+    background-color: var(--accent-hover-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+.contact {
+    background-color: #ffffff;
+    padding: 6rem 1rem;
+}
+
+.contact h2 {
+    font-family: 'Equity Text', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contact-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.contact-form-placeholder {
+    padding: 4rem;
+    background-color: var(--neutral-bg-color);
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.map-container {
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #081c34;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.footer-links a {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.social-media {
+    margin-top: 3rem;
+}
+
+.social-link {
+    color: #ffffff;
+    margin: 0 1.5rem;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+}
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+    display: none;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.back-to-top.fade-in {
+    display: block;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-4px);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #081c34;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 240px;
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .attorney-list {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-areas-container {
+        flex-wrap: wrap;
+    }
+
+    .practice-area {
+        width: 100%;
+        max-width: 400px;
+    }
+}
