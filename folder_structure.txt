@@ -1,7 +1,0 @@
-Folder PATH listing
-Volume serial number is AABD-4700
-C:.
-ÃÄÄÄpublic
-³   ÃÄÄÄfonts
-³   ÀÄÄÄimages
-ÀÄÄÄstyles
