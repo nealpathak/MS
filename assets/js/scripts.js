@@ -148,20 +148,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (header) {
         function updateHeaderShadow() {
-            if (window.scrollY > 10) {
-                header.classList.add('shadow-md');
-                header.classList.remove('shadow-sm');
+            if (window.scrollY > 16) { // 16px threshold for smoother activation
+                header.classList.add('scrolled');
             } else {
-                header.classList.add('shadow-sm');
-                header.classList.remove('shadow-md');
+                header.classList.remove('scrolled');
             }
         }
         
         // Initial check
         updateHeaderShadow();
         
-        // Update on scroll
-        window.addEventListener('scroll', updateHeaderShadow);
+        // Update on scroll with throttling for performance
+        let isScrolling = false;
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    updateHeaderShadow();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
     }
     
     // Form Enhancement (Basic Validation)

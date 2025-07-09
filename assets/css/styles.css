@@ -60,6 +60,28 @@ html, body {
     font-size: 16px;
 }
 
+/* Performance optimization for animated elements */
+.nav-link,
+.nav-link-mobile,
+.nav-mobile-toggle,
+.btn,
+.card-premium,
+.practice-area-card,
+.attorney-card,
+.attorney-photo,
+.practice-icon,
+header {
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Containment for layout optimization */
+.practice-area-card,
+.attorney-card,
+.card-premium {
+    contain: layout style;
+}
+
 /* Typography Scale - 8px Base System */
 /* Base: 16px (1rem) = 2 * 8px units */
 /* Optimized for readability and accessibility */
@@ -223,7 +245,7 @@ textarea:focus-visible {
 /* Links and Navigation */
 a {
     text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 nav a {
@@ -246,36 +268,38 @@ nav a:focus-visible {
 
 /* Refined Navigation System */
 .nav-link {
-    color: #6b7280; /* Gray-500 */
+    color: #64748b; /* Navy-500 for better readability */
     font-weight: 500;
-    font-size: 0.9375rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
+    font-size: 0.9375rem; /* 15px */
+    padding: 0.625rem 1.25rem; /* 10px 20px - better proportions */
+    border-radius: 0.5rem; /* 8px */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
     position: relative;
     text-decoration: none;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.008em; /* Refined letter spacing */
     display: inline-flex;
     align-items: center;
-    margin: 0 0.125rem;
+    margin: 0 0.25rem; /* 4px - better spacing */
     outline: none;
+    min-height: 2.5rem; /* 40px - better touch target */
+    will-change: transform; /* Optimize for animations */
 }
 
 .nav-link:hover {
     color: #0f172a; /* Navy-900 */
-    background-color: rgba(15, 23, 42, 0.06);
-    transform: translateY(-1px);
+    background-color: rgba(15, 23, 42, 0.05); /* Subtle background */
+    transform: translate3d(0, -0.5px, 0); /* Hardware accelerated gentle lift */
 }
 
 .nav-link:focus {
     color: #0f172a; /* Navy-900 */
-    background-color: rgba(15, 23, 42, 0.08);
+    background-color: rgba(15, 23, 42, 0.08); /* Stronger background for focus */
     outline: none;
 }
 
 .nav-link:active {
-    transform: translateY(0);
-    background-color: rgba(15, 23, 42, 0.12);
+    transform: translate3d(0, 0, 0); /* Hardware accelerated reset */
+    background-color: rgba(15, 23, 42, 0.10); /* Active state */
 }
 
 .nav-link-mobile {
@@ -283,65 +307,67 @@ nav a:focus-visible {
     align-items: center;
     color: #374151;
     font-weight: 500;
-    font-size: 1rem;
-    padding: 0.875rem 1.25rem;
-    border-radius: 0.75rem;
-    transition: all 0.2s ease;
+    font-size: 1rem; /* 16px */
+    padding: 1rem 1.5rem; /* 16px 24px - better proportions */
+    border-radius: 0.75rem; /* 12px */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
     text-decoration: none;
     letter-spacing: -0.005em;
-    min-height: 48px;
-    margin-bottom: 0.25rem;
+    min-height: 48px; /* Better touch target */
+    margin-bottom: 0.25rem; /* 4px */
     outline: none;
+    will-change: transform; /* Optimize for animations */
 }
 
 .nav-link-mobile:hover {
-    color: #1A2A40;
-    background-color: rgba(26, 42, 64, 0.06);
-    transform: translateX(4px);
+    color: #0f172a; /* Navy-900 */
+    background-color: rgba(15, 23, 42, 0.05); /* Subtle background */
+    transform: translate3d(3px, 0, 0); /* Hardware accelerated gentle slide */
 }
 
 .nav-link-mobile:focus {
-    color: #1A2A40;
-    background-color: rgba(26, 42, 64, 0.08);
+    color: #0f172a; /* Navy-900 */
+    background-color: rgba(15, 23, 42, 0.08); /* Stronger background for focus */
     outline: none;
 }
 
 .nav-link-mobile:active {
-    transform: translateX(2px);
-    background-color: rgba(26, 42, 64, 0.12);
+    transform: translate3d(1px, 0, 0); /* Hardware accelerated */
+    background-color: rgba(15, 23, 42, 0.10); /* Active state */
 }
 
 .nav-mobile-toggle {
-    color: #374151;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
+    color: #64748b; /* Navy-500 for consistency */
+    padding: 0.75rem; /* 12px */
+    border-radius: 0.5rem; /* 8px */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
     background: none;
     border: none;
     cursor: pointer;
-    min-width: 44px;
+    min-width: 44px; /* 44px minimum touch target */
     min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     outline: none;
+    will-change: transform; /* Optimize for animations */
 }
 
 .nav-mobile-toggle:hover {
-    color: #1A2A40;
-    background-color: rgba(26, 42, 64, 0.06);
-    transform: scale(1.05);
+    color: #0f172a; /* Navy-900 */
+    background-color: rgba(15, 23, 42, 0.05); /* Subtle background */
+    transform: scale(1.02); /* Gentle scale */
 }
 
 .nav-mobile-toggle:focus {
-    color: #1A2A40;
-    background-color: rgba(26, 42, 64, 0.08);
+    color: #0f172a; /* Navy-900 */
+    background-color: rgba(15, 23, 42, 0.08); /* Stronger background for focus */
     outline: none;
 }
 
 .nav-mobile-toggle:active {
-    transform: scale(0.95);
-    background-color: rgba(26, 42, 64, 0.12);
+    transform: scale(0.98); /* Subtle press effect */
+    background-color: rgba(15, 23, 42, 0.10); /* Active state */
 }
 
 .content-link {
@@ -389,22 +415,26 @@ nav a:focus-visible {
 }
 
 .footer-link {
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.375rem;
-    margin: -0.25rem -0.5rem;
+    color: rgba(255, 255, 255, 0.85); /* Slightly better contrast */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    padding: 0.375rem 0.75rem; /* Better padding for touch targets */
+    border-radius: 0.5rem; /* More consistent with site design */
+    margin: -0.375rem -0.75rem; /* Match padding adjustments */
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .footer-link:hover {
     color: white;
-    transform: translateX(2px);
-    background-color: rgba(255, 255, 255, 0.08);
+    transform: translate3d(0, -1px, 0); /* Subtle upward movement */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly stronger background */
 }
 
 .footer-link:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline: 2px solid rgba(255, 255, 255, 0.8); /* Better contrast for focus */
     outline-offset: 2px;
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle background for focus */
 }
 
 .breadcrumb-link {
@@ -435,7 +465,7 @@ nav a:focus-visible {
     font-size: 0.875rem; /* 14px */
     line-height: 1.25; /* Improved line height */
     border-radius: 0.5rem; /* 8px - grid compliant */
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     text-decoration: none;
     cursor: pointer;
     border: 1px solid transparent;
@@ -445,6 +475,7 @@ nav a:focus-visible {
     font-family: 'Equity Text', Georgia, serif;
     letter-spacing: -0.005em; /* Optimized */
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    will-change: transform; /* Optimize for animations */
 }
 
 .btn-primary {
@@ -570,7 +601,7 @@ textarea:hover {
 
 /* Mobile menu */
 #mobile-menu {
-    transition: all 0.3s ease;
+    transition: opacity 0.2s ease, max-height 0.2s ease, transform 0.2s ease;
 }
 
 /* Mobile Responsive */
@@ -710,13 +741,14 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
     padding: 2rem; /* 32px - 4 * 8px */
     box-shadow: 0 2px 8px 0 rgba(26, 42, 64, 0.08), 0 1px 3px 0 rgba(26, 42, 64, 0.06);
     border: 1px solid #e4e4e7;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     margin-bottom: 1.5rem; /* 24px - 3 * 8px */
+    will-change: transform; /* Optimize for animations */
 }
 
 .card-premium:hover {
     box-shadow: 0 8px 24px 0 rgba(26, 42, 64, 0.12), 0 4px 8px 0 rgba(26, 42, 64, 0.08);
-    transform: translateY(-4px); /* 8px grid increment */
+    transform: translate3d(0, -4px, 0); /* Hardware accelerated 8px grid increment */
     border-color: #d4d4d8;
 }
 
@@ -732,12 +764,13 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
     padding: 2.5rem; /* 40px - enhanced padding */
     box-shadow: 0 2px 8px 0 rgba(26, 42, 64, 0.06), 0 1px 3px 0 rgba(26, 42, 64, 0.04);
     border: 1px solid #f1f5f9;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
+    will-change: transform; /* Optimize for animations */
 }
 
 .practice-area-card::before {
@@ -749,13 +782,14 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
     height: 4px;
     background: linear-gradient(90deg, #0f172a, #1e293b); /* Navy gradient */
     transform: scaleX(0);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease;
     transform-origin: left;
+    will-change: transform; /* Optimize for animations */
 }
 
 .practice-area-card:hover {
     box-shadow: 0 12px 32px 0 rgba(26, 42, 64, 0.12), 0 6px 12px 0 rgba(26, 42, 64, 0.08);
-    transform: translateY(-6px); /* Enhanced hover lift */
+    transform: translate3d(0, -4px, 0); /* Hardware accelerated reduced hover lift */
     border-color: #e2e8f0;
 }
 
@@ -764,7 +798,7 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
 }
 
 .practice-area-card:hover .practice-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.05); /* Reduced scale for better performance */
     background: linear-gradient(135deg, #0f172a, #1e293b); /* Navy gradient */
 }
 
@@ -780,13 +814,14 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
     color: white;
     flex-shrink: 0;
     box-shadow: 0 4px 12px 0 rgba(15, 23, 42, 0.15);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform; /* Optimize for animations */
 }
 
 .practice-icon svg {
     width: 1.75rem; /* 28px - enhanced icon size */
     height: 1.75rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease; /* Only animate transform for performance */
 }
 
 .practice-title {
@@ -858,38 +893,50 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
 /* Attorney Cards - 8px Grid System */
 .attorney-card {
     background: white;
-    border-radius: 0.75rem; /* 12px - 8px grid compliant */
-    padding: 2rem; /* 32px - 4 * 8px */
-    box-shadow: 0 2px 8px 0 rgba(26, 42, 64, 0.08), 0 1px 3px 0 rgba(26, 42, 64, 0.06);
-    border: 1px solid #e4e4e7;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1rem; /* 16px - enhanced radius for premium feel */
+    padding: 2.5rem; /* 40px - increased padding for better spacing */
+    box-shadow: 0 4px 12px 0 rgba(26, 42, 64, 0.06), 0 2px 4px 0 rgba(26, 42, 64, 0.04);
+    border: 1px solid #f1f5f9; /* Lighter border for cleaner look */
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     text-align: center;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem; /* 32px - 4 * 8px */
+    will-change: transform; /* Optimize for animations */
+    position: relative;
+    overflow: hidden;
 }
 
 .attorney-card:hover {
-    box-shadow: 0 8px 24px 0 rgba(26, 42, 64, 0.12), 0 4px 8px 0 rgba(26, 42, 64, 0.08);
-    transform: translateY(-4px); /* 8px grid increment */
-    border-color: #d4d4d8;
+    box-shadow: 0 16px 40px 0 rgba(26, 42, 64, 0.08), 0 8px 16px 0 rgba(26, 42, 64, 0.06);
+    transform: translate3d(0, -4px, 0); /* Hardware accelerated 8px grid increment */
+    border-color: #e2e8f0; /* Slightly darker border on hover */
+}
+
+.attorney-card:focus-within {
+    box-shadow: 0 16px 40px 0 rgba(26, 42, 64, 0.08), 0 8px 16px 0 rgba(26, 42, 64, 0.06);
+    transform: translate3d(0, -2px, 0); /* Subtle focus lift */
+    border-color: #e2e8f0;
+    outline: none;
 }
 
 .attorney-photo {
-    width: 10rem; /* 160px = 20 * 8px - better visibility */
-    height: 12rem; /* 192px = 24 * 8px - professional 3:4 aspect ratio */
-    border-radius: 0.75rem; /* 12px - rounded rectangle */
+    width: 11rem; /* 176px = 22 * 8px - slightly larger for better presence */
+    height: 13.5rem; /* 216px = 27 * 8px - maintaining 3:4 aspect ratio */
+    border-radius: 1rem; /* 16px - enhanced radius to match card */
     overflow: hidden;
-    margin-bottom: 2rem; /* 32px = 4 * 8px */
+    margin-bottom: 2.5rem; /* 40px - increased spacing */
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 8px 32px 0 rgba(26, 42, 64, 0.08), 0 4px 16px 0 rgba(26, 42, 64, 0.04);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px 0 rgba(26, 42, 64, 0.06), 0 4px 8px 0 rgba(26, 42, 64, 0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    will-change: transform; /* Optimize for animations */
+    border: 1px solid rgba(26, 42, 64, 0.08); /* Subtle border for definition */
 }
 
 .attorney-photo img {
@@ -897,65 +944,82 @@ p, span, div, li, td, th, button, input, textarea, select, nav a {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease; /* Only animate transform for performance */
     image-rendering: crisp-edges;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: optimize-contrast;
 }
 
 .attorney-card:hover .attorney-photo {
-    box-shadow: 0 12px 48px 0 rgba(26, 42, 64, 0.12), 0 6px 24px 0 rgba(26, 42, 64, 0.08);
-    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 32px 0 rgba(26, 42, 64, 0.08), 0 8px 16px 0 rgba(26, 42, 64, 0.06);
+    transform: translate3d(0, -2px, 0) scale(1.005); /* Subtle scale for elegance */
+    border-color: rgba(26, 42, 64, 0.12); /* Enhance border on hover */
 }
 
 .attorney-credentials {
-    font-size: 0.875rem;
+    font-size: 1rem; /* Increased from 0.875rem for better readability */
     color: #64748b; /* Navy-500 */
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem; /* Increased spacing */
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em; /* Slightly reduced for better balance */
     text-align: center;
 }
 
 .attorney-name {
     font-family: 'Equity Caps', 'Equity Text', Georgia, serif;
-    font-size: 1.375rem;
+    font-size: 1.5rem; /* Increased size for better prominence */
     font-weight: 700;
     color: #0f172a; /* Navy-900 */
-    margin-bottom: 1rem;
-    line-height: 1.25;
+    margin-bottom: 1.25rem; /* Increased spacing */
+    line-height: 1.2; /* Improved line height */
     text-align: center;
+    letter-spacing: -0.015em; /* Better letter spacing for caps */
 }
 
 .attorney-specialty {
     color: #6b7280; /* Gray-500 */
-    line-height: 1.65;
-    margin-bottom: 1.5rem;
-    font-size: 0.9375rem;
+    line-height: 1.6; /* Improved line height */
+    margin-bottom: 2rem; /* Increased spacing */
+    font-size: 1rem; /* Increased from 0.9375rem for better readability */
     flex-grow: 1;
     text-align: center;
-    max-width: 28ch;
-    letter-spacing: -0.002em;
+    max-width: 32ch; /* Increased character limit for better balance */
+    letter-spacing: -0.005em; /* Improved letter spacing */
 }
 
 .arrow-link {
-    color: #1A2A40;
+    color: #0f172a; /* Navy-900 for better contrast */
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem; /* 8px */
-    font-size: 0.875rem; /* 14px */
-    padding: 0.5rem 0; /* 8px top/bottom */
-    border-radius: 0.25rem;
+    font-size: 0.9375rem; /* 15px - slightly larger */
+    padding: 0.75rem 1.5rem; /* 12px 24px - better button-like padding */
+    border-radius: 0.5rem; /* 8px - enhanced radius */
+    background-color: rgba(15, 23, 42, 0.04); /* Subtle background */
+    border: 1px solid rgba(15, 23, 42, 0.08); /* Subtle border */
+    margin-top: 0.5rem; /* 8px - spacing from specialty text */
 }
 
 .arrow-link:hover {
-    color: #2a3a56;
-    transform: translateX(4px);
-    background-color: rgba(26, 42, 64, 0.04);
+    color: #0f172a; /* Consistent navy color */
+    transform: translate3d(0, -1px, 0); /* Subtle upward lift */
+    background-color: rgba(15, 23, 42, 0.08); /* Stronger background */
+    border-color: rgba(15, 23, 42, 0.12); /* Enhanced border */
+}
+
+.arrow-link:active {
+    transform: translate3d(0, 0, 0); /* Reset transform on click */
+    background-color: rgba(15, 23, 42, 0.12); /* Stronger background for active */
+}
+
+.arrow-link:focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
 }
 
 /* Clio Grow Form Container */
@@ -1062,6 +1126,10 @@ section {
         padding: 1.5rem; /* 24px */
     }
     
+    .attorney-card {
+        padding: 2rem; /* 32px - better mobile padding for attorney cards */
+    }
+    
     .practice-title {
         font-size: 1.25rem; /* 20px */
     }
@@ -1071,8 +1139,8 @@ section {
     }
     
     .attorney-photo {
-        width: 6rem; /* 96px */
-        height: 6rem;
+        width: 8rem; /* 128px = 16 * 8px - better mobile size */
+        height: 10rem; /* 160px = 20 * 8px - maintaining aspect ratio */
     }
     
     h1 {
@@ -1134,6 +1202,15 @@ section {
         padding: 1.75rem;
     }
     
+    .attorney-card {
+        padding: 2.25rem; /* 36px - better tablet padding */
+    }
+    
+    .attorney-photo {
+        width: 9.5rem; /* 152px - intermediate size for tablet */
+        height: 11.5rem; /* 184px - maintaining aspect ratio */
+    }
+    
     h1 {
         font-size: clamp(2.25rem, 4vw, 3rem);
     }
@@ -1162,8 +1239,8 @@ section {
 .desktop-nav {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem;
+    gap: 0.25rem; /* 4px - tighter spacing */
+    padding: 0.5rem; /* 8px - better proportions */
 }
 
 /* Clean navbar styling */
@@ -1173,28 +1250,29 @@ header nav {
 
 /* Navbar container improvements */
 header .flex.justify-between.items-center {
-    padding: 0.5rem 0;
-    min-height: 5rem; /* 80px for proper spacing */
+    padding: 1rem 0; /* 16px = 2 * 8px - better vertical spacing */
+    min-height: 4.5rem; /* 72px = 9 * 8px - consistent with header */
 }
 
 /* Enhanced Mobile Menu Animation */
 #mobile-menu {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.2s ease, visibility 0.2s ease, max-height 0.2s ease, transform 0.2s ease;
     transform-origin: top;
+    will-change: transform, opacity; /* Optimize for animations */
 }
 
 #mobile-menu.hidden {
     opacity: 0;
     visibility: hidden;
     max-height: 0;
-    transform: translateY(-10px);
+    transform: translateY(-4px); /* Simplified transform for better performance */
 }
 
 #mobile-menu:not(.hidden) {
     opacity: 1;
     visibility: visible;
     max-height: 400px;
-    transform: translateY(0);
+    transform: translateY(0); /* Simplified transform for better performance */
 }
 
 /* Mobile Menu Backdrop */
@@ -1259,10 +1337,18 @@ select:focus-visible {
     box-shadow: 0 0 0 4px rgba(26, 42, 64, 0.1);
 }
 
-/* Refined focus styles - no outlines */
+/* Refined focus styles - subtle but accessible */
 button:focus,
 a:focus {
     outline: none;
+}
+
+/* Focus-visible for keyboard navigation */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
 }
 
 /* Content link focus - subtle background only */
@@ -1279,38 +1365,76 @@ a:focus {
 
 /* Enhanced navbar logo */
 header .flex-shrink-0 a {
-    font-size: 1.5rem;
+    font-size: 1.375rem; /* 22px - more refined size */
     font-weight: 700;
-    color: #1A2A40;
+    color: #0f172a; /* Navy-900 for better contrast */
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
     outline: none;
+    letter-spacing: -0.015em; /* Better letter spacing */
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem; /* 8px 12px - better touch target */
+    margin: -0.5rem -0.75rem; /* Negative margin for proper spacing */
+    border-radius: 0.5rem; /* 8px */
+    will-change: transform; /* Optimize for animations */
 }
 
 header .flex-shrink-0 a:hover {
-    color: #2a3a56;
-    transform: translateY(-1px);
+    color: #1e293b; /* Navy-800 */
+    transform: translateY(-0.5px); /* Subtle lift */
+    background-color: rgba(15, 23, 42, 0.04); /* Subtle background */
 }
 
 header .flex-shrink-0 a:focus {
-    color: #2a3a56;
+    color: #1e293b; /* Navy-800 */
+    background-color: rgba(15, 23, 42, 0.06); /* Slightly stronger background */
     outline: none;
 }
 
 /* Mobile menu enhancements */
 #mobile-menu {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(26, 42, 64, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(26, 42, 64, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Navbar height consistency */
 header {
-    min-height: 5rem; /* 80px */
-    border-bottom: 1px solid rgba(26, 42, 64, 0.08);
+    min-height: 4.5rem; /* 72px = 9 * 8px - better proportions */
+    border-bottom: 1px solid rgba(26, 42, 64, 0.06);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    transition: box-shadow 0.2s ease, border-bottom-color 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow state */
+}
+
+/* Enhanced navbar shadow on scroll */
+header.scrolled {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    border-bottom-color: rgba(26, 42, 64, 0.08);
     background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
+}
+
+/* Enhanced focus states for navigation */
+.nav-link:focus-visible,
+.nav-link-mobile:focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+
+.nav-mobile-toggle:focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+
+header .flex-shrink-0 a:focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
 }
 
 /* High Contrast Mode Support */
@@ -1328,6 +1452,14 @@ header {
     
     .btn-primary {
         border: 2px solid #000;
+    }
+    
+    /* Enhanced focus for high contrast */
+    .nav-link:focus-visible,
+    .nav-link-mobile:focus-visible,
+    .nav-mobile-toggle:focus-visible {
+        outline: 3px solid #000;
+        outline-offset: 2px;
     }
 }
 
@@ -1428,6 +1560,30 @@ header {
 /* Enhanced Text Alignment */
 .text-balance {
     text-wrap: balance;
+}
+
+/* Footer styling enhancements */
+footer {
+    position: relative;
+}
+
+footer h3 {
+    margin-bottom: 1rem; /* Better spacing for footer headings */
+    color: white;
+    font-size: 1.125rem; /* 18px - more readable */
+    font-weight: 600;
+}
+
+footer .border-t {
+    border-color: rgba(255, 255, 255, 0.15) !important; /* Subtle border for better definition */
+    margin-top: 2rem; /* 32px - better spacing */
+    padding-top: 2rem; /* 32px - better spacing */
+}
+
+footer p {
+    margin-bottom: 0; /* Remove default margin for cleaner appearance */
+    font-size: 0.875rem; /* 14px - more appropriate size */
+    line-height: 1.5; /* Better line height */
 }
 
 .text-pretty {
